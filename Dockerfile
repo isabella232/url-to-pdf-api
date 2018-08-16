@@ -2,8 +2,8 @@ FROM node:8.7.0
 
 WORKDIR /usr/src/app
 ENV NODE_ENV production
-ENV PORT 9000
-EXPOSE 9000
+ENV PORT 80
+EXPOSE 80
 
 RUN apt-get update \
     && apt-get install -yq \
@@ -18,7 +18,6 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 
 COPY package.json .
-COPY yarn.lock .
 
 RUN yarn install --frozen-lockfile
 
